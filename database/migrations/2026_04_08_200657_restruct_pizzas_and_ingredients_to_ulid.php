@@ -102,7 +102,5 @@ return new class extends Migration
     public function down(): void
     {
         // La reversibilità di questa migrazione è complessa e distruttiva per gli ID.
-        // In un contesto reale servirebbe un piano di backup. 
-        // Per semplicità qui non implementiamo il rollback completo dei ULID in INT.
     }
 };

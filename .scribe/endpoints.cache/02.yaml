@@ -48,7 +48,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"nome":"Marinara","prezzi":{"normale":"4.50","media":"7.00","maxi":"11.50"},"is_visible":true,"ingredienti":["Pomodoro","Aglio","Olio","Origano"]},{"id":1,"nome":"Marinara","prezzi":{"normale":"4.50","media":"7.00","maxi":"11.50"},"is_visible":true,"ingredienti":["Pomodoro","Aglio","Olio","Origano"]}]}'
+        content: '{"data":[{"id":"01KNQB9WJVQSBVTEFKJHEJJMNV","nome":"Marinara","position":10,"prezzi":{"normale":"4.50","media":"7.00","maxi":"11.50"},"is_visible":true,"ingredienti":["Pomodoro","Aglio","Olio","Origano"]},{"id":"01KNQB9WJVQSBVTEFKJHEJJMNV","nome":"Marinara","position":10,"prezzi":{"normale":"4.50","media":"7.00","maxi":"11.50"},"is_visible":true,"ingredienti":["Pomodoro","Aglio","Olio","Origano"]}]}'
         headers: []
         description: ''
     responseFields: []
@@ -148,6 +148,17 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      position:
+        custom: []
+        name: position
+        description: 'Ordine di apparizione nel menu. Se omesso, viene messa in coda.'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
       ingredients:
         custom: []
         name: ingredients
@@ -166,12 +177,13 @@ endpoints:
       price_media: 12.0
       price_maxi: 16.5
       is_visible: true
+      position: 10
     fileParameters: []
     responses:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"nome":"Marinara","prezzi":{"normale":"4.50","media":"7.00","maxi":"11.50"},"is_visible":true,"ingredienti":["Pomodoro","Aglio","Olio","Origano"]}}'
+        content: '{"data":{"id":"01KNQB9WJVQSBVTEFKJHEJJMNV","nome":"Marinara","position":10,"prezzi":{"normale":"4.50","media":"7.00","maxi":"11.50"},"is_visible":true,"ingredienti":["Pomodoro","Aglio","Olio","Origano"]}}'
         headers: []
         description: ''
     responseFields: []
@@ -209,14 +221,14 @@ endpoints:
         name: pizza_id
         description: 'The ID of the pizza.'
         required: true
-        example: 1
-        type: integer
+        example: 01KNQB9WJVQSBVTEFKJHEJJMNV
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      pizza_id: 1
+      pizza_id: 01KNQB9WJVQSBVTEFKJHEJJMNV
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -286,6 +298,17 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      position:
+        custom: []
+        name: position
+        description: 'Ordine di apparizione nel menu. Se omesso, viene messa in coda.'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
       ingredients:
         custom: []
         name: ingredients
@@ -304,12 +327,13 @@ endpoints:
       price_media: 12.0
       price_maxi: 16.5
       is_visible: true
+      position: 10
     fileParameters: []
     responses:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"nome":"Marinara","prezzi":{"normale":"4.50","media":"7.00","maxi":"11.50"},"is_visible":true,"ingredienti":["Pomodoro","Aglio","Olio","Origano"]}}'
+        content: '{"data":{"id":"01KNQB9WJVQSBVTEFKJHEJJMNV","nome":"Marinara","position":10,"prezzi":{"normale":"4.50","media":"7.00","maxi":"11.50"},"is_visible":true,"ingredienti":["Pomodoro","Aglio","Olio","Origano"]}}'
         headers: []
         description: ''
     responseFields: []
@@ -347,14 +371,14 @@ endpoints:
         name: pizza_id
         description: 'The ID of the pizza.'
         required: true
-        example: 1
-        type: integer
+        example: 01KNQB9WJVQSBVTEFKJHEJJMNV
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      pizza_id: 1
+      pizza_id: 01KNQB9WJVQSBVTEFKJHEJJMNV
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

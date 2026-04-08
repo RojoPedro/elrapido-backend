@@ -13,7 +13,7 @@ class PizzaResource extends JsonResource
      * @return array<string, mixed>
      */
     public function toArray(Request $request): array
-{
+    {
         return [
             'id' => $this->id,
             'nome' => $this->name,
@@ -28,5 +28,5 @@ class PizzaResource extends JsonResource
             // Trasformiamo la collezione di ingredienti in un semplice array di nomi
             'ingredienti' => $this->ingredients->pluck('name'),
         ];
-}
+    }
 }

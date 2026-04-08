@@ -539,7 +539,7 @@ vary: Origin
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;generated_hash&quot;: &quot;$2y$12$0UR6ZltubbwOy5BJh9Djw.rY7Tm2qZQXDn5nUeJOiHPUjHn9nYVQ6&quot;,
+    &quot;generated_hash&quot;: &quot;$2y$12$0gwrEotyhcZ7ngSl8uNPFu1EWuAwvTTboeQQmeOvJn0x.nDSNyzke&quot;,
     &quot;hash_works&quot;: true,
     &quot;user_hash_in_db&quot;: null,
     &quot;password_matches_db&quot;: false
@@ -927,7 +927,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://elrapido-backend-production.up.railway.app/api/ingredients/1" \
+    "https://elrapido-backend-production.up.railway.app/api/ingredients/01KNQB9WM40GZF2QVV3RQJFZ00" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -939,7 +939,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://elrapido-backend-production.up.railway.app/api/ingredients/1"
+    "https://elrapido-backend-production.up.railway.app/api/ingredients/01KNQB9WM40GZF2QVV3RQJFZ00"
 );
 
 const headers = {
@@ -1060,15 +1060,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>ingredient_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="ingredient_id"                data-endpoint="PUTapi-ingredients--ingredient_id-"
-               value="1"
+                <input type="text" style="display: none"
+                              name="ingredient_id"                data-endpoint="PUTapi-ingredients--ingredient_id-"
+               value="01KNQB9WM40GZF2QVV3RQJFZ00"
                data-component="url">
     <br>
-<p>The ID of the ingredient. Example: <code>1</code></p>
+<p>The ID of the ingredient. Example: <code>01KNQB9WM40GZF2QVV3RQJFZ00</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1099,7 +1099,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://elrapido-backend-production.up.railway.app/api/ingredients/1" \
+    "https://elrapido-backend-production.up.railway.app/api/ingredients/01KNQB9WM40GZF2QVV3RQJFZ00" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1107,7 +1107,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://elrapido-backend-production.up.railway.app/api/ingredients/1"
+    "https://elrapido-backend-production.up.railway.app/api/ingredients/01KNQB9WM40GZF2QVV3RQJFZ00"
 );
 
 const headers = {
@@ -1241,15 +1241,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>ingredient_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="ingredient_id"                data-endpoint="DELETEapi-ingredients--ingredient_id-"
-               value="1"
+                <input type="text" style="display: none"
+                              name="ingredient_id"                data-endpoint="DELETEapi-ingredients--ingredient_id-"
+               value="01KNQB9WM40GZF2QVV3RQJFZ00"
                data-component="url">
     <br>
-<p>The ID of the ingredient. Example: <code>1</code></p>
+<p>The ID of the ingredient. Example: <code>01KNQB9WM40GZF2QVV3RQJFZ00</code></p>
             </div>
                     </form>
 
@@ -1308,8 +1308,9 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 1,
+            &quot;id&quot;: &quot;01KNQB9WJVQSBVTEFKJHEJJMNV&quot;,
             &quot;nome&quot;: &quot;Marinara&quot;,
+            &quot;position&quot;: 10,
             &quot;prezzi&quot;: {
                 &quot;normale&quot;: &quot;4.50&quot;,
                 &quot;media&quot;: &quot;7.00&quot;,
@@ -1324,8 +1325,9 @@ fetch(url, {
             ]
         },
         {
-            &quot;id&quot;: 1,
+            &quot;id&quot;: &quot;01KNQB9WJVQSBVTEFKJHEJJMNV&quot;,
             &quot;nome&quot;: &quot;Marinara&quot;,
+            &quot;position&quot;: 10,
             &quot;prezzi&quot;: {
                 &quot;normale&quot;: &quot;4.50&quot;,
                 &quot;media&quot;: &quot;7.00&quot;,
@@ -1463,7 +1465,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"price_normale\": 8.5,
     \"price_media\": 12,
     \"price_maxi\": 16.5,
-    \"is_visible\": true
+    \"is_visible\": true,
+    \"position\": 10
 }"
 </code></pre></div>
 
@@ -1485,7 +1488,8 @@ let body = {
     "price_normale": 8.5,
     "price_media": 12,
     "price_maxi": 16.5,
-    "is_visible": true
+    "is_visible": true,
+    "position": 10
 };
 
 fetch(url, {
@@ -1504,8 +1508,9 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 1,
+        &quot;id&quot;: &quot;01KNQB9WJVQSBVTEFKJHEJJMNV&quot;,
         &quot;nome&quot;: &quot;Marinara&quot;,
+        &quot;position&quot;: 10,
         &quot;prezzi&quot;: {
             &quot;normale&quot;: &quot;4.50&quot;,
             &quot;media&quot;: &quot;7.00&quot;,
@@ -1689,6 +1694,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Indica se la pizza deve apparire nel menu. Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>position</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="position"                data-endpoint="POSTapi-pizze"
+               value="10"
+               data-component="body">
+    <br>
+<p>Ordine di apparizione nel menu. Se omesso, viene messa in coda. Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>ingredients</code></b>&nbsp;&nbsp;
 <small>string[]</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -1718,7 +1735,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "https://elrapido-backend-production.up.railway.app/api/pizze/1" \
+    "https://elrapido-backend-production.up.railway.app/api/pizze/01KNQB9WJVQSBVTEFKJHEJJMNV" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1728,14 +1745,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"price_normale\": 8.5,
     \"price_media\": 12,
     \"price_maxi\": 16.5,
-    \"is_visible\": true
+    \"is_visible\": true,
+    \"position\": 10
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://elrapido-backend-production.up.railway.app/api/pizze/1"
+    "https://elrapido-backend-production.up.railway.app/api/pizze/01KNQB9WJVQSBVTEFKJHEJJMNV"
 );
 
 const headers = {
@@ -1750,7 +1768,8 @@ let body = {
     "price_normale": 8.5,
     "price_media": 12,
     "price_maxi": 16.5,
-    "is_visible": true
+    "is_visible": true,
+    "position": 10
 };
 
 fetch(url, {
@@ -1769,8 +1788,9 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 1,
+        &quot;id&quot;: &quot;01KNQB9WJVQSBVTEFKJHEJJMNV&quot;,
         &quot;nome&quot;: &quot;Marinara&quot;,
+        &quot;position&quot;: 10,
         &quot;prezzi&quot;: {
             &quot;normale&quot;: &quot;4.50&quot;,
             &quot;media&quot;: &quot;7.00&quot;,
@@ -1873,15 +1893,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>pizza_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="pizza_id"                data-endpoint="PUTapi-pizze--pizza_id-"
-               value="1"
+                <input type="text" style="display: none"
+                              name="pizza_id"                data-endpoint="PUTapi-pizze--pizza_id-"
+               value="01KNQB9WJVQSBVTEFKJHEJJMNV"
                data-component="url">
     <br>
-<p>The ID of the pizza. Example: <code>1</code></p>
+<p>The ID of the pizza. Example: <code>01KNQB9WJVQSBVTEFKJHEJJMNV</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1967,6 +1987,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Indica se la pizza deve apparire nel menu. Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>position</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="position"                data-endpoint="PUTapi-pizze--pizza_id-"
+               value="10"
+               data-component="body">
+    <br>
+<p>Ordine di apparizione nel menu. Se omesso, viene messa in coda. Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>ingredients</code></b>&nbsp;&nbsp;
 <small>string[]</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -1996,7 +2028,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://elrapido-backend-production.up.railway.app/api/pizze/1" \
+    "https://elrapido-backend-production.up.railway.app/api/pizze/01KNQB9WJVQSBVTEFKJHEJJMNV" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2004,7 +2036,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://elrapido-backend-production.up.railway.app/api/pizze/1"
+    "https://elrapido-backend-production.up.railway.app/api/pizze/01KNQB9WJVQSBVTEFKJHEJJMNV"
 );
 
 const headers = {
@@ -2118,15 +2150,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>pizza_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="pizza_id"                data-endpoint="DELETEapi-pizze--pizza_id-"
-               value="1"
+                <input type="text" style="display: none"
+                              name="pizza_id"                data-endpoint="DELETEapi-pizze--pizza_id-"
+               value="01KNQB9WJVQSBVTEFKJHEJJMNV"
                data-component="url">
     <br>
-<p>The ID of the pizza. Example: <code>1</code></p>
+<p>The ID of the pizza. Example: <code>01KNQB9WJVQSBVTEFKJHEJJMNV</code></p>
             </div>
                     </form>
 

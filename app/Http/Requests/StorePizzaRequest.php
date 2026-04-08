@@ -21,6 +21,7 @@ public function rules(): array
         'price_media' => 'nullable|numeric|min:0',
         'price_maxi' => 'nullable|numeric|min:0',
         'is_visible' => 'boolean',
+        'position' => 'nullable|integer',
         'ingredients' => 'array', // Array di ID degli ingredienti
         'ingredients.*' => 'exists:ingredients,id', // Ogni ID deve esistere davvero
     ];
@@ -52,6 +53,10 @@ public function bodyParameters(): array
         'is_visible' => [
             'description' => 'Indica se la pizza deve apparire nel menu.',
             'example' => true,
+        ],
+        'position' => [
+            'description' => 'Ordine di apparizione nel menu. Se omesso, viene messa in coda.',
+            'example' => 10,
         ],
         'ingredients' => [
             'description' => 'Lista di ID degli ingredienti da associare alla pizza.',

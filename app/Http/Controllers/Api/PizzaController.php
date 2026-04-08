@@ -31,7 +31,9 @@ class PizzaController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Pizza::with('ingredients')->orderBy('position', 'asc');
+        $query = Pizza::with('ingredients')
+            ->orderBy('is_visible', 'desc')
+            ->orderBy('position', 'asc');
 
         if (!$request->has('all')) {
             $query->where('is_visible', true);

@@ -124,14 +124,14 @@ endpoints:
         name: ingredient_id
         description: 'The ID of the ingredient.'
         required: true
-        example: 1
-        type: integer
+        example: 01KNQB9WM40GZF2QVV3RQJFZ00
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ingredient_id: 1
+      ingredient_id: 01KNQB9WM40GZF2QVV3RQJFZ00
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -191,14 +191,14 @@ endpoints:
         name: ingredient_id
         description: 'The ID of the ingredient.'
         required: true
-        example: 1
-        type: integer
+        example: 01KNQB9WM40GZF2QVV3RQJFZ00
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      ingredient_id: 1
+      ingredient_id: 01KNQB9WM40GZF2QVV3RQJFZ00
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
