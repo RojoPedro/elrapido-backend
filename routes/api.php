@@ -6,7 +6,7 @@ use App\Http\Controllers\Api\IngredientController;
 use Illuminate\Support\Facades\Route;
 
 // --- ROTTE PUBBLICHE ---
-// Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']);
 Route::get('/pizze', [PizzaController::class, 'index']);
 // Gli ingredienti sono utili anche al pubblico per i filtri di ricerca
 Route::get('/ingredients', [IngredientController::class, 'index']); 
@@ -14,6 +14,8 @@ Route::get('/ingredients', [IngredientController::class, 'index']);
 
 // --- ROTTE PROTETTE (CMS) ---
 Route::middleware('auth:sanctum')->group(function () {
+    // Logout
+    Route::post('/logout', [AuthController::class, 'logout']);
     
     // Pizze
     Route::post('/pizze', [PizzaController::class, 'store']);
