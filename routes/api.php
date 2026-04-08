@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\Api\PizzaController;
 use App\Http\Controllers\Api\IngredientController;
-use App\Http\Controllers\Api\AuthController;
+// use App\Http\Controllers\Api\AuthController;
 use Illuminate\Support\Facades\Route;
 
 // --- ROTTE PUBBLICHE ---
-Route::post('/login', [AuthController::class, 'login']);
+// Route::post('/login', [AuthController::class, 'login']);
 Route::get('/pizze', [PizzaController::class, 'index']);
 // Gli ingredienti sono utili anche al pubblico per i filtri di ricerca
 Route::get('/ingredients', [IngredientController::class, 'index']); 

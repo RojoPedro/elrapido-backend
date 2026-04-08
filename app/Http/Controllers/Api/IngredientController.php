@@ -11,15 +11,13 @@ class IngredientController extends Controller
 {
     use AuthorizesRequests;
 
-    public function index()
+        public function index()
     {
-        // Tutti possono vedere gli ingredienti (utile per i filtri nel sito)
         return response()->json(Ingredient::all());
     }
 
-    public function store(Request $request)
+        public function store(Request $request)
     {
-        // Solo il pizzaiolo può aggiungere nuovi ingredienti
         $this->authorize('create', Ingredient::class);
 
         $validated = $request->validate([
@@ -31,7 +29,7 @@ class IngredientController extends Controller
         return response()->json($ingredient, 201);
     }
 
-    public function update(Request $request, Ingredient $ingredient)
+        public function update(Request $request, Ingredient $ingredient)
     {
         $this->authorize('update', $ingredient);
 
@@ -44,11 +42,10 @@ class IngredientController extends Controller
         return response()->json($ingredient);
     }
 
-    public function destroy(Ingredient $ingredient)
+        public function destroy(Ingredient $ingredient)
     {
         $this->authorize('delete', $ingredient);
 
-        // Recuperiamo le pizze collegate (solo ID e nome per il frontend)
         $pizzeCoinvolte = $ingredient->pizzas()->select('pizzas.id', 'pizzas.name')->get();
 
         if ($pizzeCoinvolte->isNotEmpty()) {
@@ -57,9 +54,9 @@ class IngredientController extends Controller
                 'code' => 'INGREDIENT_IN_USE',
                 'message' => "Impossibile eliminare: ingrediente in uso.",
                 'data' => [
-                    'affected_pizzas' => $pizzeCoinvolte 
+                    'affected_pizzas' => $pizzeCoinvolte
                 ]
-            ], 409); // Conflict
+            ], 409);
         }
 
         $ingredient->delete();
