@@ -283,16 +283,19 @@ class PizzaSeeder extends Seeder
         ];
 
         foreach ($pizze as $item) {
-            // 1. Crea la pizza usando solo i dati sotto la chiave 'pizza'
-            $nuovaPizza = Pizza::create($item['pizza']);
+            // 1. Cerca la pizza per nome, o creala se non esiste
+            $nuovaPizza = Pizza::firstOrCreate(
+                ['name' => $item['pizza']['name']],
+                $item['pizza']
+            );
     
             // 2. Trasforma i nomi degli ingredienti in ID
             $ids = collect($item['ingredienti'])->map(function($nomeIngrediente) use ($ing) {
                 return $ing($nomeIngrediente)->id;
             });
     
-            // 3. Collega gli ID alla pizza nella tabella pivot
-            $nuovaPizza->ingredients()->attach($ids);
+            // 3. Collega gli ID alla pizza nella tabella pivot usando sync (evita duplicati)
+            $nuovaPizza->ingredients()->sync($ids);
         }
     }
 }
