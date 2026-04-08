@@ -5,6 +5,20 @@ use App\Http\Controllers\Api\IngredientController;
 use App\Http\Controllers\Api\AuthController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/debug-hash', function () {
+    $hash = bcrypt('password');
+    $check = \Illuminate\Support\Facades\Hash::check('password', $hash);
+    $userHash = \App\Models\User::where('email', 'admin@elrapido.it')->value('password');
+    $checkUser = \Illuminate\Support\Facades\Hash::check('password', $userHash);
+    
+    return response()->json([
+        'generated_hash' => $hash,
+        'hash_works' => $check,
+        'user_hash_in_db' => $userHash,
+        'password_matches_db' => $checkUser,
+    ]);
+});
+
 // --- ROTTE PUBBLICHE ---
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/pizze', [PizzaController::class, 'index']);
