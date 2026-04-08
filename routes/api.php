@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Api\PizzaController;
 use App\Http\Controllers\Api\IngredientController;
-// use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\AuthController;
 use Illuminate\Support\Facades\Route;
 
 // --- ROTTE PUBBLICHE ---
