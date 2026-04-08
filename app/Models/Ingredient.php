@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 
 class Ingredient extends Model
 {
+    use HasUlids;
+
     protected $fillable = [
         'name',
         'is_allergen',

@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 
 class Pizza extends Model
 {
+    use HasUlids;
+
     protected $fillable = [
         'name',
         'description',
@@ -14,17 +17,17 @@ class Pizza extends Model
         'price_media',
         'price_maxi',
         'is_visible',
+        'position',
     ];
-    
-    // app/Models/Pizza.php
 
-protected $casts = [
-    'price_baby' => 'decimal:2',
-    'price_normale' => 'decimal:2',
-    'price_media' => 'decimal:2',
-    'price_maxi' => 'decimal:2',
-    'is_visible' => 'boolean',
-];
+    protected $casts = [
+        'price_baby' => 'decimal:2',
+        'price_normale' => 'decimal:2',
+        'price_media' => 'decimal:2',
+        'price_maxi' => 'decimal:2',
+        'is_visible' => 'boolean',
+        'position' => 'integer',
+    ];
 
     public function ingredients()
     {

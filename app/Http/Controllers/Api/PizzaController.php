@@ -31,7 +31,7 @@ class PizzaController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Pizza::with('ingredients');
+        $query = Pizza::with('ingredients')->orderBy('position', 'asc');
 
         if (!$request->has('all')) {
             $query->where('is_visible', true);
@@ -56,7 +56,15 @@ class PizzaController extends Controller
         $this->authorize('create', Pizza::class);
 
         return DB::transaction(function () use ($request) {
-            $pizza = Pizza::create($request->validated());
+            $data = $request->validated();
+            
+            // Assegniamo la posizione automatica se non fornita
+            if (!isset($data['position'])) {
+                $maxPosition = Pizza::max('position') ?? 0;
+                $data['position'] = $maxPosition + 10;
+            }
+
+            $pizza = Pizza::create($data);
 
             if ($request->has('ingredients')) {
                 $pizza->ingredients()->sync($request->ingredients);
