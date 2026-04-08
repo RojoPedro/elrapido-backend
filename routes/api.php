@@ -19,6 +19,15 @@ Route::get('/debug-hash', function () {
     ]);
 });
 
+// --- ROTTA TEMPORANEA PULIZIA DISPERATA ---
+Route::get('/system/cleanup-pizzas', function () {
+    \Illuminate\Support\Facades\Artisan::call('app:cleanup-duplicate-pizzas');
+    return response()->json([
+        'message' => 'Pulizia eseguita!',
+        'output' => \Illuminate\Support\Facades\Artisan::output()
+    ]);
+});
+
 // --- ROTTE PUBBLICHE ---
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/pizze', [PizzaController::class, 'index']);
