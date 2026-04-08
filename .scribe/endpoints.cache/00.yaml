@@ -32,7 +32,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"generated_hash":"$2y$12$0gwrEotyhcZ7ngSl8uNPFu1EWuAwvTTboeQQmeOvJn0x.nDSNyzke","hash_works":true,"user_hash_in_db":null,"password_matches_db":false}'
+        content: '{"generated_hash":"$2y$12$CuzRYKqGXaSfoKXcjs7WTO\/RSKONECX9re7J9RKOh6v4Ze0KeVEZi","hash_works":true,"user_hash_in_db":null,"password_matches_db":false}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

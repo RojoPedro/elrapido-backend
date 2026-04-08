@@ -116,6 +116,9 @@
                                                     <li class="tocify-item level-2" data-unique="menu-pizze-GETapi-pizze">
                                 <a href="#menu-pizze-GETapi-pizze">Elenco pizze</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="menu-pizze-PATCHapi-pizze-reorder">
+                                <a href="#menu-pizze-PATCHapi-pizze-reorder">Riordina pizze (Bulk)</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="menu-pizze-POSTapi-pizze">
                                 <a href="#menu-pizze-POSTapi-pizze">Crea nuova pizza</a>
                             </li>
@@ -539,7 +542,7 @@ vary: Origin
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;generated_hash&quot;: &quot;$2y$12$0gwrEotyhcZ7ngSl8uNPFu1EWuAwvTTboeQQmeOvJn0x.nDSNyzke&quot;,
+    &quot;generated_hash&quot;: &quot;$2y$12$CuzRYKqGXaSfoKXcjs7WTO/RSKONECX9re7J9RKOh6v4Ze0KeVEZi&quot;,
     &quot;hash_works&quot;: true,
     &quot;user_hash_in_db&quot;: null,
     &quot;password_matches_db&quot;: false
@@ -1440,6 +1443,204 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Mostra tutte le pizze (anche quelle nascoste). Solo per amministratori. Example: <code>true</code></p>
             </div>
                 </form>
+
+                    <h2 id="menu-pizze-PATCHapi-pizze-reorder">Riordina pizze (Bulk)</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Aggiorna la posizione di più pizze contemporaneamente. Utile per il drag-and-drop nel CMS.</p>
+
+<span id="example-requests-PATCHapi-pizze-reorder">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PATCH \
+    "https://elrapido-backend-production.up.railway.app/api/pizze/reorder" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"orders\": [
+        {
+            \"id\": \"01JKW...\",
+            \"position\": 10
+        },
+        {
+            \"id\": \"01JKX...\",
+            \"position\": 20
+        }
+    ]
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://elrapido-backend-production.up.railway.app/api/pizze/reorder"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "orders": [
+        {
+            "id": "01JKW...",
+            "position": 10
+        },
+        {
+            "id": "01JKX...",
+            "position": 20
+        }
+    ]
+};
+
+fetch(url, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PATCHapi-pizze-reorder">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Ordinamento aggiornato con successo.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PATCHapi-pizze-reorder" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PATCHapi-pizze-reorder"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PATCHapi-pizze-reorder"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PATCHapi-pizze-reorder" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PATCHapi-pizze-reorder">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PATCHapi-pizze-reorder" data-method="PATCH"
+      data-path="api/pizze/reorder"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PATCHapi-pizze-reorder', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PATCHapi-pizze-reorder"
+                    onclick="tryItOut('PATCHapi-pizze-reorder');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PATCHapi-pizze-reorder"
+                    onclick="cancelTryOut('PATCHapi-pizze-reorder');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PATCHapi-pizze-reorder"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/pizze/reorder</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PATCHapi-pizze-reorder"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PATCHapi-pizze-reorder"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PATCHapi-pizze-reorder"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>orders</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+ &nbsp;
+<br>
+<p>Una lista di oggetti con 'id' e 'position'.</p>
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="orders.0.id"                data-endpoint="PATCHapi-pizze-reorder"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>L'ULID della pizza. Example: <code>architecto</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>position</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="orders.0.position"                data-endpoint="PATCHapi-pizze-reorder"
+               value="16"
+               data-component="body">
+    <br>
+<p>La nuova posizione. Example: <code>16</code></p>
+                    </div>
+                                    </details>
+        </div>
+        </form>
 
                     <h2 id="menu-pizze-POSTapi-pizze">Crea nuova pizza</h2>
 

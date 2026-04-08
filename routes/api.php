@@ -32,6 +32,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     
     // Pizze
+    Route::patch('/pizze/reorder', [PizzaController::class, 'reorder']);
     Route::post('/pizze', [PizzaController::class, 'store']);
     Route::put('/pizze/{pizza}', [PizzaController::class, 'update']);
     Route::delete('/pizze/{pizza}', [PizzaController::class, 'destroy']);

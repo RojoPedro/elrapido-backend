@@ -45,6 +45,35 @@ class PizzaController extends Controller
     }
 
     /**
+     * Riordina pizze (Bulk)
+     *
+     * Aggiorna la posizione di più pizze contemporaneamente. Utile per il drag-and-drop nel CMS.
+     * 
+     * @authenticated
+     * @bodyParam orders array required Una lista di oggetti con 'id' e 'position'. Example: [{"id": "01JKW...", "position": 10}, {"id": "01JKX...", "position": 20}]
+     * @bodyParam orders[].id string required L'ULID della pizza.
+     * @bodyParam orders[].position integer required La nuova posizione.
+     * 
+     * @response {"message": "Ordinamento aggiornato con successo."}
+     */
+    public function reorder(Request $request)
+    {
+        $request->validate([
+            'orders' => 'required|array',
+            'orders.*.id' => 'required|exists:pizzas,id',
+            'orders.*.position' => 'required|integer',
+        ]);
+
+        DB::transaction(function () use ($request) {
+            foreach ($request->orders as $order) {
+                Pizza::where('id', $order['id'])->update(['position' => $order['position']]);
+            }
+        });
+
+        return response()->json(['message' => 'Ordinamento aggiornato con successo.']);
+    }
+
+    /**
      * Crea nuova pizza
      *
      * Aggiunge una nuova pizza al menu con i relativi ingredienti.

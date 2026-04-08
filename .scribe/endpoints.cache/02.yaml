@@ -59,6 +59,95 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - PATCH
+    uri: api/pizze/reorder
+    metadata:
+      custom: []
+      groupName: 'Menu & Pizze'
+      groupDescription: |-
+
+        API per la gestione del menu delle pizze.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Riordina pizze (Bulk)'
+      description: 'Aggiorna la posizione di più pizze contemporaneamente. Utile per il drag-and-drop nel CMS.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      orders:
+        custom: []
+        name: orders
+        description: "Una lista di oggetti con 'id' e 'position'."
+        required: true
+        example:
+          -
+            id: 01JKW...
+            position: 10
+          -
+            id: 01JKX...
+            position: 20
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      'orders[].id':
+        custom: []
+        name: 'orders[].id'
+        description: "L'ULID della pizza."
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'orders[].position':
+        custom: []
+        name: 'orders[].position'
+        description: 'La nuova posizione.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      orders:
+        -
+          id: 01JKW...
+          position: 10
+        -
+          id: 01JKX...
+          position: 20
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"message": "Ordinamento aggiornato con successo."}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - POST
     uri: api/pizze
     metadata:
