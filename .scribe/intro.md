@@ -1,6 +1,6 @@
 # Introduction
 
-
+Documentazione ufficiale del backend di El Rapido. Gestione menu, pizze, ingredienti e ordini.
 
 <aside>
     <strong>Base URL</strong>: <code>https://elrapido-backend-production.up.railway.app</code>

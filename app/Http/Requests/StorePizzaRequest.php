@@ -25,4 +25,38 @@ public function rules(): array
         'ingredients.*' => 'exists:ingredients,id', // Ogni ID deve esistere davvero
     ];
 }
+
+public function bodyParameters(): array
+{
+    return [
+        'name' => [
+            'description' => 'Il nome della pizza.',
+            'example' => 'Capricciosa',
+        ],
+        'description' => [
+            'description' => 'Descrizione facoltativa della pizza.',
+            'example' => 'Pomodoro, mozzarella, carciofini, olive e funghi.',
+        ],
+        'price_normale' => [
+            'description' => 'Prezzo per la dimensione standard.',
+            'example' => 8.50,
+        ],
+        'price_media' => [
+            'description' => 'Prezzo per la dimensione media (opzionale).',
+            'example' => 12.00,
+        ],
+        'price_maxi' => [
+            'description' => 'Prezzo per la dimensione maxi (opzionale).',
+            'example' => 16.50,
+        ],
+        'is_visible' => [
+            'description' => 'Indica se la pizza deve apparire nel menu.',
+            'example' => true,
+        ],
+        'ingredients' => [
+            'description' => 'Lista di ID degli ingredienti da associare alla pizza.',
+            'example' => [1, 5, 8],
+        ],
+    ];
+}
 }

@@ -1,0 +1,131 @@
+name: Autenticazione
+description: |-
+
+  Endpoint per gestire l'accesso e l'uscita degli utenti amministrativi.
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      custom: []
+      groupName: Autenticazione
+      groupDescription: |-
+
+        Endpoint per gestire l'accesso e l'uscita degli utenti amministrativi.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Login amministratore'
+      description: |-
+        Invia le credenziali per ottenere un token di accesso (Personal Access Token).
+        Il token ottenuto dovrà essere incluso nell'header `Authorization` come `Bearer {token}` per tutte le successive richieste protette.
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        custom: []
+        name: email
+        description: "L'indirizzo email dell'utente amministratore."
+        required: true
+        example: admin@elrapido.it
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      password:
+        custom: []
+        name: password
+        description: "La password dell'utente."
+        required: true
+        example: password
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      email: admin@elrapido.it
+      password: password
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"token": "1|nLx9...yS7A"}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Credenziali non valide"}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: '{"message": "The email field is required.", "errors": {"email": ["The email field is required."]}}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      custom: []
+      groupName: Autenticazione
+      groupDescription: |-
+
+        Endpoint per gestire l'accesso e l'uscita degli utenti amministrativi.
+      subgroup: ''
+      subgroupDescription: ''
+      title: Logout
+      description: "Revoca il token corrente utilizzato per l'autenticazione, invalidandolo per le chiamate future."
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"message": "Logout effettuato"}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Unauthenticated."}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null

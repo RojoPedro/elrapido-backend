@@ -10,11 +10,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+/**
+ * @group Menu & Pizze
+ *
+ * API per la gestione del menu delle pizze.
+ */
 class PizzaController extends Controller
 {
     use AuthorizesRequests;
 
-        public function index(Request $request)
+    /**
+     * Elenco pizze
+     *
+     * Recupera la lista di tutte le pizze disponibili. Per impostazione predefinita, restituisce solo le pizze visibili nel menu.
+     *
+     * @queryParam all boolean Mostra tutte le pizze (anche quelle nascoste). Solo per amministratori. Example: true
+     * 
+     * @apiResourceCollection App\Http\Resources\PizzaResource
+     * @apiResourceModel \App\Models\Pizza
+     */
+    public function index(Request $request)
     {
         $query = Pizza::with('ingredients');
 
@@ -27,7 +42,16 @@ class PizzaController extends Controller
         return PizzaResource::collection($pizze);
     }
 
-        public function store(StorePizzaRequest $request)
+    /**
+     * Crea nuova pizza
+     *
+     * Aggiunge una nuova pizza al menu con i relativi ingredienti.
+     *
+     * @authenticated
+     * @apiResource App\Http\Resources\PizzaResource
+     * @apiResourceModel \App\Models\Pizza
+     */
+    public function store(StorePizzaRequest $request)
     {
         $this->authorize('create', Pizza::class);
 
@@ -42,7 +66,16 @@ class PizzaController extends Controller
         });
     }
 
-        public function update(StorePizzaRequest $request, Pizza $pizza)
+    /**
+     * Aggiorna pizza
+     *
+     * Modifica i dettagli di una pizza esistente e aggiorna i suoi ingredienti.
+     *
+     * @authenticated
+     * @apiResource App\Http\Resources\PizzaResource
+     * @apiResourceModel \App\Models\Pizza
+     */
+    public function update(StorePizzaRequest $request, Pizza $pizza)
     {
         $this->authorize('update', $pizza);
 
@@ -57,7 +90,15 @@ class PizzaController extends Controller
         });
     }
 
-        public function destroy(Pizza $pizza)
+    /**
+     * Elimina pizza
+     *
+     * Rimuove definitivamente una pizza dal menu.
+     *
+     * @authenticated
+     * @response {"message": "Pizza 'Margherita' eliminata con successo dal menu."}
+     */
+    public function destroy(Pizza $pizza)
     {
         $this->authorize('delete', $pizza);
 
