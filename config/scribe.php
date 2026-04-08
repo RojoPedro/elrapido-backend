@@ -11,7 +11,7 @@ use function Knuckles\Scribe\Config\removeStrategies;
 
 return [
     // The HTML <title> for the generated documentation.
-    'title' => config('app.name').' API Documentation',
+    'title' => 'El Rapido API Documentation',
 
     // A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
     'description' => '',
@@ -26,7 +26,7 @@ return [
 
     // The base URL displayed in the docs.
     // If you're using `laravel` type, you can set this to a dynamic string, like '{{ config("app.tenant_url") }}' to get a dynamic base URL.
-    'base_url' => config('app.url'),
+    'base_url' => env('APP_URL', 'http://localhost'),
 
     // Routes to include in the docs
     'routes' => [
@@ -250,7 +250,7 @@ return [
     // For response calls, API resource responses and transformer responses,
     // Scribe will try to start database transactions, so no changes are persisted to your database.
     // Tell Scribe which connections should be transacted here. If you only use one db connection, you can leave this as is.
-    'database_connections_to_transact' => [config('database.default')],
+    'database_connections_to_transact' => ['mysql'],
 
     'fractal' => [
         // If you are using a custom serializer with league/fractal, you can specify it here.
